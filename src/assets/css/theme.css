@@ -1,0 +1,9 @@
+.web3modal-modal-lightbox{
+	z-index: 9999999 !important;
+}
+span#walletAddress{
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  max-width: 140px;
+}

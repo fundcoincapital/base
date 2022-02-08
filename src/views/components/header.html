@@ -1,0 +1,31 @@
+  <!-- Header @s -->
+      <div class="header-main">
+        <div class="header-container container">
+          <div class="header-wrap">
+            <!-- Logo @s -->
+            <div class="header-logo logo animated" data-animate="fadeInDown" data-delay=".6">
+              <a href="./" class="logo-link">
+                <img class="logo-dark" src="/assets/images/logo.png" srcset="/assets/images/logo2x.png 2x" alt="logo">
+                <img class="logo-light" src="/assets/images/logo-full-white.png" srcset="/assets/images/logo-full-white2x.png 2x" alt="logo">
+              </a>
+            </div>
+
+            <!-- Menu Toogle @s -->
+            <div class="header-nav-toggle">
+              <a href="#" class="navbar-toggle" data-menu-toggle="header-menu">
+                                <div class="toggle-line">
+                                    <span></span>
+                                </div>
+                            </a>
+            </div>
+
+            <!-- Menu @s -->
+            <div class="header-navbar animated" data-animate="fadeInDown" data-delay=".75">
+               
+                <%- include("./nav.html") %>
+            </div><!-- .header-navbar @e -->
+          </div>                                                
+        </div>
+      </div><!-- .header-main @e -->
+
+<%- include("./banner.html") %>

@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="zxx" class="js">
+<head>
+  <meta charset="utf-8">
+<meta name="author" content="Softnio">
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<meta name="description" content="">
+<!-- Fav Icon  -->
+<link rel="shortcut icon" href="/assets/images/favicon.png">
+<!-- Site Title  -->
+<title><%=page.title%></title>
+<!-- Bundle and Base CSS -->
+<link rel="stylesheet" href="/assets/css/vendor.bundle.css?ver=1930">
+<link rel="stylesheet" href="/assets/css/style.css?ver=1930" id="changeTheme">
+<!-- Extra CSS -->
+<link rel="stylesheet" href="/assets/css/theme.css?ver=1930">
+
+<script src="/assets/js/jquery.bundle.js?ver=1930"></script>
+<script src="/assets/js/web3.js?ver=1930"></script>
+<script src="/assets/js/provider.js?ver=1930"></script>
+<script src="/assets/js/scripts.js?ver=1930"></script>
+
+<style type="text/css">
+  body{
+    overflow-x: hidden;
+  }
+</style>
+</head>
+
+
+    <body class="nk-body body-wider mode-onepage bg-light">
+
+  <div class="nk-wrap">
+     <header class="nk-header page-header bg-primary" id="header" style="margin-bottom: 15px;">
+            <%- include("./components/header.html",{
+                title : "BAT CLASSIC IDO",
+                description : "Join IDO get profit 8 lever"
+            }) %>
+    </header>
+        
+    <main class="nk-pages container-fluid">
+      <%- body %>
+    </main>
+    <footer class="nk-footer bg-theme-grad ov-h">
+        <%- include("./components/footer.html") %>
+    </footer>
+  </div>
+    
+    
+  <!-- preloader -->
+  <div class="preloader preloader-alt no-split"><span class="spinner spinner-alt"><img class="spinner-brand" src="/assets/images/logo-full-white.png" alt=""></span></div>
+  
+  <!-- JavaScript -->
+  
+  <script src="/assets/js/blockchain.js?ver=1930"></script>
+  
+  </body>
+</html>

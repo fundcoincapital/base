@@ -1,0 +1,25 @@
+{
+	"main" : {
+		"title" : "Smart AI"
+	},
+	"telegram" : {
+		"token" : "2080891890:AAGLU597kC331D8I9lsNlQPdyPcN900jHpI",
+		"channel" : "@vsmartfx",
+		"group" : ""
+	},
+	"ido" : {
+		"title" : "IDO - Claim free | Smart AI"
+	},
+	"trader" : {
+		"title" : "Smart AI Signals"
+	},
+	"copytrade" : {
+		"title" : "Copytrade | Smart AI Signals"
+	},
+	"download" : {
+		"title" : "Download Tool | Smart AI Signals"
+	},
+	"games" : {
+		"title" : "Game Play | Smart Crypto"
+	}
+}
