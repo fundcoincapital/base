@@ -11,6 +11,8 @@ import { connect } from './database';
 //const client = new net.Socket();
 
 import * as jsonfile from "./data.json"
+import language from "./language/language.json";
+
 //const reqSock = new Request()
 //const repSock = new zmq.Reply()
 
@@ -22,6 +24,7 @@ const app: Application = express();
 const server: http.Server = http.createServer(app);
 
 const publicDirectoryPath = path.join(__dirname, "./public");
+const code = "vn";
 app.use(express.static(publicDirectoryPath));
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }));
@@ -42,7 +45,7 @@ app.set('view engine', 'html');
 
 /* Home route */
 app.get("/", (req: Request, res: Response) => {
-	res.render("index",{page : jsonfile.main})
+	res.render("index",{page : jsonfile.main, lang : language.vn})
 });
 
 

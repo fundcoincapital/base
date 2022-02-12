@@ -30,6 +30,10 @@ gulp.task("datajson", function () {
     return gulp.src("./src/*.json").pipe(gulp.dest("./dist"));
 });
 
+gulp.task("language", function () {
+    return gulp.src("./src/language/*.json").pipe(gulp.dest("./dist/language"));
+});
+
 // Task which would just create a copy of the current views directory in dist directory
 gulp.task("views", function () {
     return gulp.src("./src/views/**/*.html").pipe(gulp.dest("./dist/views"));
@@ -106,7 +110,7 @@ gulp.task('web3', function() {
 });
 
 // The default task which runs at start of the gulpfile.js
-gulp.task("default", gulp.series("build-clean","typescript", "views", "assets", "web3","datajson"), () => {
+gulp.task("default", gulp.series("build-clean","typescript", "views", "assets", "language", "web3","datajson"), () => {
     console.log("Done");
 });
 gulp.task("defaultadmin", gulp.series("typescript", "assets","admin", "datajson"), () => {

@@ -18,7 +18,14 @@
     "dev:api": "nodemon --watch src -e ts,ejs,html --exec npm run start:api",
     "dev:admin": "nodemon --watch src -e ts,ejs,html --exec npm run start:admin"
   },
-  "keywords": ["express","smartai","smartcrypto","btc","blockchain","fundcoincapital"],
+  "keywords": [
+    "express",
+    "smartai",
+    "smartcrypto",
+    "btc",
+    "blockchain",
+    "fundcoincapital"
+  ],
   "author": "Smart Crypto",
   "license": "ISC",
   "devDependencies": {
@@ -35,7 +42,9 @@
   },
   "dependencies": {
     "@types/axios": "^0.14.0",
+    "@types/bcryptjs": "^2.4.2",
     "@types/body-parser": "^1.19.2",
+    "@types/jsonwebtoken": "^8.5.8",
     "@types/morgan": "^1.9.3",
     "@types/mysql2": "github:types/mysql2",
     "@types/node-telegram-bot-api": "^0.53.3",
@@ -56,6 +65,7 @@
     "morgan": "^1.10.0",
     "mysql2": "^2.3.3",
     "node-telegram-bot-api": "^0.56.0",
+    "nodemon": "^2.0.15",
     "promise-socket": "^7.0.0",
     "socket.io": "^4.4.0",
     "ts-loader": "^9.2.6",
@@ -63,7 +73,6 @@
     "web3modal": "^1.9.4",
     "webpack": "^5.64.4",
     "webpack-cli": "^4.9.1",
-    "zeromq": "6.0.0-beta.6",
-    "nodemon": "^2.0.15"
+    "zeromq": "6.0.0-beta.6"
   }
 }
