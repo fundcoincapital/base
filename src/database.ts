@@ -5,7 +5,7 @@ export async function connect(): Promise<Pool> {
         host: 'localhost',
         user: 'root',
         password : 'root',
-        database: 'smarttrader',
+        database: 'fundcoincapital',
         connectionLimit: 10
     });
     return connection;

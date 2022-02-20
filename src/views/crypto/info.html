@@ -1,0 +1,53 @@
+ <header class="nk-header page-header is-transparent is-sticky is-shrink" id="header">
+        <%- include("./../components/header.html",{
+            title : "Crypto Item INFO",
+            description : "Free copy trade service, Win rate 80-90%",
+            banner : "./banner_page.html",
+            html : ''
+        }) %>
+</header>
+
+<main class="nk-pages">
+    
+
+
+    <section class="section bg-transparent over-down over-up-xl-s1 pdt-0">
+                <div class="ui-mask-right ui-mask-s8"></div>
+                <div class="container">
+                    <!-- Block @s -->
+                    <div class="nk-block nk-block-features-s3">
+                        <h1 class="title"><%=item.name%></h1>
+                        <div class="row justify-content-center">
+                           
+                           
+                            <div class="col-lg-8 col-md-8 mb-4">
+                                <div class="card card-lg-y animated pd-0 mb-3" data-animate="fadeInUp" data-delay="1.4">
+                                    <img class="card-img-top" src="<%=item.banner%>" style="max-height: 420px;">
+                                    <div class="card-body">
+                                        <div>
+                                            
+                                            <%-item.description%>
+                                        </div>
+                                    </div>
+
+                                </div>
+                                
+                            </div><!-- .col -->
+
+                            <div class="col-lg-4 col-md-4 mb-4">
+                                <div class="card card-lg-y animated pd-0" data-animate="fadeInUp" data-delay="1.4">
+                                    <div class="card-body">
+                                        Right Contents
+                                    </div>
+                                </div>
+                            </div>
+                             
+                        </div><!-- .row -->
+                    </div><!-- .block @e -->
+                </div>
+            </section>
+            <!-- // -->
+</main>
+<footer class="nk-footer bg-theme-grad ov-h">
+          <%- include("./../components/footer.html") %>
+</footer>
