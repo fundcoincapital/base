@@ -1,3 +1,4 @@
+<link rel="stylesheet" type="text/css" href="/assets/editer/summernote-bs4.css">
 <form action="/exchange/create.html" method="post">
 <h4 class="d-flex justify-content-between">Create Exchange
   <div>
@@ -7,6 +8,18 @@
 
  
     <div class="card">
+      <div class="form-group">
+          <label for="exampleInputEmail1">Name</label>
+          <input type="text" class="form-control" name="name" value="<%=item.name%>">
+          
+      </div>
+
+      <div class="form-group">
+        <label for="exampleInputEmail1"><h4>Contents</h4></label>
+        
+        <textarea class="form-control summernote" name="contents"><%=item.contents%></textarea>
+        
+      </div>
     	<div class="form-group">
 	        <label >Name</label>
 	        <input type="text" class="form-control" name="name" required>
@@ -14,3 +27,14 @@
     	<button type="submit" class="btn btn-primary">Public Data</button>
     </div>
 </form>
+
+
+<script src="/assets/editer/summernote-bs4.js" referrerpolicy="origin"></script>
+<script>
+
+  $(document).ready(function() {
+      $('.summernote').summernote({
+        height: 550
+      });
+    });
+  </script>

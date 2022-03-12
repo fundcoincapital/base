@@ -48,6 +48,7 @@ node_modules/
 jspm_packages/
 autogen
 autogen.js
+vps.txt
 *.lock
 # Snowpack dependency directory (https://snowpack.dev/)
 web_modules/

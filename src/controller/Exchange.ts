@@ -1,17 +1,17 @@
 import express, {Request, Response, NextFunction } from 'express';
 import modules from '../modules/Exchange';
-import * as jsonfile from "./../data.json"
+const page = {title : "Exchange", description : ""};
 const router = express.Router();
 
-router.get("/list",async (req: Request, res: Response, next: NextFunction) => {
+router.get("/",async (req: Request, res: Response, next: NextFunction) => {
 	let data = await modules.listItems();
-	res.render("exchange/list",{page : jsonfile.main, data : data});
+	res.render("exchange/list",{page : page, data : data});
 });
 
 router.get("/info-(:id).html",async (req: Request, res: Response, next: NextFunction) => {
-	var id = req.params.id;
+	var id = Number(req.params.id);
 	let data = await modules.getItem(id);
-	res.render("exchange/info",{page : jsonfile.main, item : data});
+	res.render("exchange/info",{page : page, item : data});
 });
 
 //Export Default Router
