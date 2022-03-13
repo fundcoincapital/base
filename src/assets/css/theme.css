@@ -7,3 +7,11 @@ span#walletAddress{
   text-overflow: ellipsis;
   max-width: 140px;
 }
+
+.note-editor.card{
+  border-radius: 0 !important;
+  padding: 0 !important;
+}
+.note-editor .note-editing-area{
+  min-height: 250px;
+}
