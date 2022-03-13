@@ -1,5 +1,5 @@
 import { connect } from '../database'
-const dbName = "template";
+const dbName = "template_design";
 const searchField = "name";
 const prikeyField = "id";
 const getItem = async(id:number=0) =>{
@@ -21,9 +21,9 @@ const listItems = async(limit:number=8,page:number=1, search:any="") =>{
     try {
     const conn = await connect();
     if(search == ""){
-        sql = `SELECT * FROM ${dbName} ORDER BY id DESC LIMIT ${limit}`;
+        sql = `SELECT * FROM ${dbName} ORDER BY sort_db ASC LIMIT ${limit}`;
     }else{
-        sql = `SELECT * FROM ${dbName} WHERE ${searchField} LIKE '%"+search+"%'  ORDER BY id DESC LIMIT ${limit}`;
+        sql = `SELECT * FROM ${dbName} WHERE ${searchField} LIKE '%"+search+"%'  ORDER BY sort_db ASC LIMIT ${limit}`;
     }
     const [rows, fields] = await conn.query(sql)  as any;
     
