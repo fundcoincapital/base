@@ -1,18 +1,26 @@
 <h4 class="d-flex justify-content-between">Template
 	<div>
-		<a href="/template/create.html" class="btn btn-primary btn-sm">Create</a>
+		<a href="/template/create" class="btn btn-primary btn-sm">Create</a>
 	</div>
 </h4>
 <div class="table-responsive">
 <table class="table table-hover table-bordered table-striped">
 	<thead class="thead-primary">
+		<th>#</th>
 		<th>Name</th>
+		<th>Display</th>
+		<th>Time Start</th>
+		<th>Time End</th>
 		
 		<th></th>
 	</thead>
 	<% data.forEach(function(item) { %>
 	<tr>
-		<td></td>
+		<td><%=data.sort_db%></td>
+		<td><%=data.name%></td>
+		<td><%=data.display%></td>
+		<td><%=data.start_time%></td>
+		<td><%=data.end_time%></td>
 		<td class="text-right" style="width:1%; white-space: nowrap;">
 			<a class="btn btn-danger btn-sm" href="/template/edit-<%= item.id %>.html" style="min-width: 20px; padding: 3px;"><i class="fa fa-edit"></i> Edit</a>
 			<a class="btn btn-danger btn-sm" href="/template/delete-<%= item.id %>.html" style="min-width: 20px; padding: 3px;"><i class="fa fa-trash"></i> Delete</a>
