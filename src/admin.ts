@@ -16,7 +16,9 @@ import * as jsonfile from "./data.json"
 import axios, {AxiosResponse} from 'axios';
 //const reqSock = new Request()
 //const repSock = new zmq.Reply()
-
+import template from './controller/TemplateAdmin';
+import post from './controller/PostsAdmin';
+//import page from './controller/Pages';
 const ServiceMT4 = "127.0.0.1";
 const ServiceAPI = "http://127.0.0.1:3000/api";
 
@@ -47,7 +49,7 @@ app.set('view engine', 'html');
 app.get("/", (req: Request, res: Response) => {
 	res.render("index",{page : jsonfile.main})
 });
-
+app.use("/template",template);
 
 server.listen(port, () => {
   console.log(`SERVER RUNNING ON ${port}`);

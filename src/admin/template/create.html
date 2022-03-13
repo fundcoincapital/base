@@ -1,40 +1,100 @@
-<link rel="stylesheet" type="text/css" href="/assets/editer/summernote-bs4.css">
-<form action="/template/create.html" method="post">
-<h4 class="d-flex justify-content-between">Create Template
+<form action="" method="post">
+<h4 class="d-flex justify-content-between">Manager Create
   <div>
-    <button type="submit" class="btn btn-primary btn-sm">Save</button>
+    <a href="/template/create" class="btn btn-primary btn-sm">Create</a>
+    <a href="/template/render" class="btn btn-primary btn-sm">Render Session</a>
+    <button type="submit" class="btn btn-primary btn-sm">Save Contents</button>
   </div>
 </h4>
 
- 
-    <div class="card">
-      <div class="form-group">
+<div class="card">
+  <div class="card-body">
+    <div class="row">
+      <div class="col-md-6">
+        <div class="form-group">
           <label for="exampleInputEmail1">Name</label>
           <input type="text" class="form-control" name="name" value="<%=item.name%>">
           
+        </div>
+      </div>
+      <div class="col-md-3">
+        <div class="form-group">
+          <label for="exampleInputEmail1">Time Start</label>
+          <input type="text" class="form-control" name="start_time" value="<%=item.start_time%>">
+          
+        </div>
       </div>
 
-      <div class="form-group">
-        <label for="exampleInputEmail1"><h4>Contents</h4></label>
-        
-        <textarea class="form-control summernote" name="contents"><%=item.contents%></textarea>
-        
+      <div class="col-md-3">
+        <div class="form-group">
+          <label for="exampleInputEmail1">Time End</label>
+          <input type="text" class="form-control" name="end_time" value="<%=item.end_time%>">
+          
+        </div>
       </div>
-    	<div class="form-group">
-	        <label >Name</label>
-	        <input type="text" class="form-control" name="name" required>
-	    </div>
-    	<button type="submit" class="btn btn-primary">Public Data</button>
+
     </div>
+
+
+
+    <div class="row">
+      <div class="col-md-3">
+        Status
+        <select class="form-control" name="status">
+            <option value="On">On</option>
+            <option value="Off">Off</option>
+          </select>
+      </div>
+      <div class="col-md-3">
+        <div class="form-group">
+          <label for="exampleInputEmail1">Sort DB</label>
+          <input type="text" class="form-control" name="sort_db" value="<%=item.sort_db%>">
+          
+        </div>
+      </div>
+      
+      <div class="col-md-6">
+        Display
+          <select class="form-control" name="display">
+            <option value="home">Home</option>
+            <option value="left">Left</option>
+            <option value="right">Right</option>
+            <option value="bottom">Bottom</option>
+            <option value="inpost">In Post</option>
+            <option value="customs">In Post</option> 
+          </select>
+      </div>
+    </div>
+
+    <div class="form-group">
+      <label for="exampleInputEmail1"><h4>Contents</h4></label>
+      
+      <textarea class="form-control summernote" name="contents"><%=item.contents%></textarea>
+      
+    </div>
+
+
+    <div class="form-group">
+      <label for="exampleInputEmail1"><h4>CSS</h4></label>
+      
+      <textarea class="form-control" name="customs_css"><%=item.customs_css%></textarea>
+      
+    </div>
+
+
+    <div class="form-group">
+      <label for="exampleInputEmail1"><h4>Javascript</h4></label>
+      
+      <textarea class="form-control" name="customs_javascript"><%=item.customs_javascript%></textarea>
+      
+    </div>
+
+ 
+    <div class="form-group">
+      <button type="submit" class="btn btn-primary">Submit</button>
+      
+    </div>
+
+  </div>
+</div>
 </form>
-
-
-<script src="/assets/editer/summernote-bs4.js" referrerpolicy="origin"></script>
-<script>
-
-  $(document).ready(function() {
-      $('.summernote').summernote({
-        height: 550
-      });
-    });
-  </script>
