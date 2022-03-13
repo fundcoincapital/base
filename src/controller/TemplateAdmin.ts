@@ -43,7 +43,7 @@ router.post("/delete-(:id).html",async (req: Request, res: Response, next: NextF
 });
 
 router.get("/render", async (req: Request, res: Response, next: NextFunction) => {
-	let data = await modules.listBlock();
+	let data = await modules.listItems();
 	var obj:string = "";
 	
 	for (let item of data) {
