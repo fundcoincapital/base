@@ -1,0 +1,66 @@
+ <header class="nk-header page-header is-transparent is-sticky is-shrink" id="header">
+        <%- include("./../components/header.html",{
+            title : "Account List Item",
+            description : "Free copy trade service, Win rate 80-90%",
+            banner : "./banner_account.html",
+            html : ''
+        }) %>
+</header>
+
+<main class="nk-pages bg-white">
+
+    <section class="section  ov-v" style="padding-bottom:10px;">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-3">
+                    
+                    <%- include("./menu.html") %>
+
+                </div>
+                <div class="col-md-9">
+                    <div class="card">
+                        <h1>History</h1>
+                        <table class="table">
+                            <thead>
+                                <th>Action</th>
+                                <th>Date</th>
+                                <th>Value</th>
+                                <th>Status</th>
+                            </thead>
+                            <tr>
+                                <td>Deposit</td>
+                                <td>22/12/2022</td>
+                                <td>1000$</td>
+                                <td>Complete</td>
+                            </tr>
+                            <tr>
+                                <td>Widthdraw</td>
+                                <td>22/12/2022</td>
+                                <td>1000$</td>
+                                <td>Complete</td>
+                            </tr>
+                            <tr>
+                                <td>Deposit</td>
+                                <td>22/12/2022</td>
+                                <td>1000$</td>
+                                <td>Complete</td>
+                            </tr>
+                            <tr>
+                                <td>Deposit</td>
+                                <td>22/12/2022</td>
+                                <td>1000$</td>
+                                <td>Complete</td>
+                            </tr>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+
+            
+</main>
+<footer class="nk-footer bg-theme-grad ov-h">
+        <%- include("./../components/footer.html") %>
+</footer>

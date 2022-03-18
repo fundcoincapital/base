@@ -12,19 +12,42 @@
     <section class="section pdt-0 ov-v" style="padding-bottom:10px;">
         <div class="container">
             <div class="nk-block nk-block-features-s3">
-                <h2>Exchange ITEM</h2>
-                <div class="row">
+                
+                <table class="table table-hover">
+                    <thead>
+                        <th>Symbol</th>
+                        <th colspan="3">Buy</th>
+                        <th colspan="3">Sell</th>
+                        <th></th>
+                    </thead>
+                    <tr>
+                        <td></td>
+                        <td>USDT</td>
+                        <td>VND</td>
+                        <td>KWR</td>
+                        <td>USDT</td>
+                        <td>VND</td>
+                        <td>KWR</td>
+                        <td width="20%"></td>
+                    </tr>
                     <% data.forEach(function(item) { %>
-                    <div class="col-xs-12 col-md-3 mb-3">
-                        <div class="card card-lg-y animated pd-0" data-animate="fadeInUp" data-delay="1.4">
-                            <img class="card-img-top" src="<%=item.banner%>" style="max-height: 180px;">
-                            <div class="card-body">
-                                Item List
-                            </div>
-                        </div>
-                    </div>
+                    <tr>
+                        <td><%=item.symbol.replace('USDT','USD')%></td>
+                        <td class="buy<%=item.symbol%>">--</td>
+                        <td class="buy<%=item.symbol%>_vnd">--</td>
+                        <td class="buy<%=item.symbol%>_kwr">--</td>
+                        <td class="sell<%=item.symbol%>">--</td>
+                        <td class="sell<%=item.symbol%>_vnd">--</td>
+                        <td class="sell<%=item.symbol%>_kwr">--</td>
+                        <td class="text-right">
+                            <button class="btn btn-sm btn-primary" type="button">Buy Now</button>
+                            <button class="btn btn-sm btn-primary" type="button">Sell Now</button>
+                        </td>
+                    </tr>
                     <% }); %>
-                </div>
+                </table>
+                    
+                
             </div>
         </div>
     </section>
@@ -32,6 +55,72 @@
 
             
 </main>
+<script type="text/javascript">
+
+    function timeout() {
+        setTimeout(function () {
+
+            getData();
+            timeout();
+        },60000);
+    }
+let vnd = 23000;
+let kwr = 18000;
+function formatMoney(amount, decimalCount = 2, decimal = ".", thousands = ",") {
+  try {
+    decimalCount = Math.abs(decimalCount);
+    decimalCount = isNaN(decimalCount) ? 2 : decimalCount;
+
+    const negativeSign = amount < 0 ? "-" : "";
+
+    let i = parseInt(amount = Math.abs(Number(amount) || 0).toFixed(decimalCount)).toString();
+    let j = (i.length > 3) ? i.length % 3 : 0;
+
+    var data = negativeSign + (j ? i.substr(0, j) + thousands : '') + i.substr(j).replace(/(\d{3})(?=\d)/g, "$1" + thousands) + (decimalCount ? decimal + Math.abs(amount - i).toFixed(decimalCount).slice(2) : "");
+    return data;
+  } catch (e) {
+    console.log(e)
+  }
+};
+function getData() {
+         fetch("https://api1.binance.com/api/v3/ticker/price").then(response => {
+                // handle the response
+                response.json().then(d => {
+                        d.forEach((v) =>{
+                            
+                            if(v.symbol.search(/USDT/) !== -1){
+                                var classBuy = ".buy"+v.symbol;
+                                var classSell = ".sell"+v.symbol;
+                                var priceUSDT = parseFloat(v.price).toFixed(2);
+                                let buyPrice = calcBuy(priceUSDT);
+                                let sellPrice = calcSell(priceUSDT);
+                                $(classBuy).html(formatMoney(buyPrice));
+                                $(classBuy+"_vnd").html(formatMoney(parseFloat(buyPrice*vnd).toFixed(2),0));
+                                $(classBuy+"_kwr").html(formatMoney(parseFloat(buyPrice*kwr).toFixed(2),0));
+
+                                $(classSell).html(formatMoney(sellPrice));
+                                $(classSell+"_vnd").html(formatMoney(parseFloat(sellPrice*vnd).toFixed(2),0));
+                                $(classSell+"_kwr").html(formatMoney(parseFloat(sellPrice*kwr).toFixed(2),0));
+                            }
+                            
+                        });
+                    });
+                //console.log(response.data);
+            })
+            .catch(error => {
+                // handle the error
+            });
+        }
+    getData();
+    timeout();
+
+    function calcBuy(usdt) {
+        return parseFloat(usdt * 1.025).toFixed(2);
+    }
+    function calcSell(usdt) {
+        return parseFloat(usdt * 0.975).toFixed(2);
+    }
+</script>
 <footer class="nk-footer bg-theme-grad ov-h">
         <%- include("./../components/footer.html") %>
 </footer>

@@ -14,5 +14,32 @@ router.get("/info-(:id).html",async (req: Request, res: Response, next: NextFunc
 	res.render("account/info",{page : page, item : data});
 });
 
+router.get("/login",async (req: Request, res: Response, next: NextFunction) => {
+	
+	res.render("account/login",{page : page});
+});
+
+router.get("/register",async (req: Request, res: Response, next: NextFunction) => {
+	
+	res.render("account/register",{page : page});
+});
+
+router.get("/validate",async (req: Request, res: Response, next: NextFunction) => {
+	
+	res.render("account/validate",{page : page});
+});
+
+
+router.get("/bank",async (req: Request, res: Response, next: NextFunction) => {
+	
+	res.render("account/bank",{page : page});
+});
+
+
+router.get("/history",async (req: Request, res: Response, next: NextFunction) => {
+	
+	res.render("account/history",{page : page});
+});
+
 //Export Default Router
 export = router;

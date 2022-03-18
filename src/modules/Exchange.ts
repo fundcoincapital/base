@@ -1,7 +1,7 @@
 import { connect } from '../database'
-const dbName = "";
-const searchField = "";
-const prikeyField = "";
+const dbName = "echange";
+const searchField = "symbol";
+const prikeyField = "id";
 const getItem = async(id:number=0) =>{
 	try {
         const conn = await connect();

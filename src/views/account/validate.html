@@ -1,0 +1,49 @@
+ <header class="nk-header page-header is-transparent is-sticky is-shrink" id="header">
+        <%- include("./../components/header.html",{
+            title : "Account List Item",
+            description : "Free copy trade service, Win rate 80-90%",
+            banner : "./banner_account.html",
+            html : ''
+        }) %>
+</header>
+
+<main class="nk-pages bg-white">
+
+    <section class="section  ov-v" style="padding-bottom:10px;">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-3">
+                    
+                    <%- include("./menu.html") %>
+
+                </div>
+                <div class="col-md-9">
+                    <div class="card">
+                        <h1>Submit document validate account</h1>
+                        <form>
+                          <div class="form-row">
+                            <div class="form-group col-md-12">
+                              <label for="inputEmail4">CMND/Passport</label>
+                              <input type="file" class="form-control" id="inputEmail4">
+                            </div>
+                            <div class="form-group col-md-12">
+                              <label for="inputPassword4">Image</label>
+                              <input type="file" class="form-control" id="inputPassword4">
+                            </div>
+                          </div>
+                          
+                          
+                          <button type="submit" class="btn btn-primary">Send document</button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+
+            
+</main>
+<footer class="nk-footer bg-theme-grad ov-h">
+        <%- include("./../components/footer.html") %>
+</footer>
