@@ -5,13 +5,9 @@ import fs from "fs";
 import debug from "./config/debug";
 import expressLayouts from 'express-ejs-layouts';
 import ejs from 'ejs';
-import TelegramBot from "node-telegram-bot-api";
+
 import bodyParser from "body-parser";
-import { connect } from './database';
-import { getRunOrders, getFinishOrders, createOrders, closeOrders, deleteOrders, getSymbol, getAllSymbol, updateSymbolTrendParent , updateSymbolTrendChild} from './modules/Orders';
-import net from 'net';
-const client = new net.Socket();
-import * as zmq from "zeromq"
+
 import * as jsonfile from "./data.json"
 import axios, {AxiosResponse} from 'axios';
 //const reqSock = new Request()

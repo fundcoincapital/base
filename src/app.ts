@@ -27,10 +27,31 @@ const app: Application = express();
 const server: http.Server = http.createServer(app);
 
 const publicDirectoryPath = path.join(__dirname, "./public");
-const code = "vn";
 app.use(express.static(publicDirectoryPath));
-app.use(bodyParser.json());
-app.use(bodyParser.urlencoded({ extended: false }));
+app.use(express.static(path.join(__dirname, './upload')));
+app.use(bodyParser.json({limit: '50mb'}));
+app.use(bodyParser.urlencoded({limit: '50mb', extended: false, parameterLimit:50000}));
+
+import multer from 'multer';
+
+var storage = multer.diskStorage({
+  destination: function (req, file, cb) {
+    cb(null, __dirname + '/upload')
+  },
+  filename: function (req, file, cb) {
+    let extArray = file.mimetype.split("/");
+    let extension = extArray[extArray.length - 1];
+    cb(null, file.fieldname + '-' + Date.now() + '.'+extension)
+  }
+})
+ 
+var upload = multer({ storage: storage })
+
+
+app.use(upload.single('image'));
+
+const code = "vn";
+
 
 // Setting the port
 const port = debug.PORT;

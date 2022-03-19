@@ -1,7 +1,7 @@
 import { connect } from '../database'
-const dbName = "";
-const searchField = "";
-const prikeyField = "";
+const dbName = "accounts";
+const searchField = "email";
+const prikeyField = "id";
 const getItem = async(id:number=0) =>{
 	try {
         const conn = await connect();
@@ -12,6 +12,46 @@ const getItem = async(id:number=0) =>{
     }
     catch (e) {
         return {};
+    }
+    return true;
+}
+
+const getUserLogin = async(username:string="", password:string="") =>{
+    try {
+        const conn = await connect();
+        
+        var sql = `SELECT * FROM ${dbName} WHERE username='${username}' AND password='${password}' AND status != 'off' LIMIT 1`;
+        const [rows, fields] = await conn.query(sql)  as any;
+        return rows[0];
+    }
+    catch (e) {
+        return {};
+    }
+    return true;
+}
+
+const setValidateWait1 = async(id:number=0, file:string="") => {
+    try {
+        const conn = await connect();
+        var sql = `UPDATE ${dbName} SET document_validate_file='${file}' WHERE ${prikeyField}=${id}`;
+        await conn.query(sql);
+        return true;
+    }
+    catch (e) {
+        return false;
+    }
+    return true;
+}
+
+const setValidateWait2 = async(id:number=0, file:string="") => {
+    try {
+        const conn = await connect();
+        var sql = `UPDATE ${dbName} SET passport_validate_file='${file}' WHERE ${prikeyField}=${id}`;
+        await conn.query(sql);
+        return true;
+    }
+    catch (e) {
+        return false;
     }
     return true;
 }
@@ -73,4 +113,4 @@ const deleteItem = async(id:number=0) =>{
     return true;
 }
 
-export default {getItem, listItems, createItem, updateItem, deleteItem};
+export default {getItem, listItems, createItem, updateItem, deleteItem, getUserLogin, setValidateWait1, setValidateWait2};
