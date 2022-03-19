@@ -87,6 +87,21 @@ const createItem = async(obj = "") =>{
     return true;
 }
 
+const createUserLogin = async(username:string="", email:string="", password:string="") =>{
+    try {
+        const conn = await connect();
+        var sql = `INSERT INTO ${dbName} SET username='${username}', email='${email}', password='${password}'`;
+        await conn.query(sql);
+        return true;
+    }
+    catch (e) {
+        return false;
+    }
+    return true;
+}
+
+
+
 const updateItem = async(id:number=0, obj="") =>{
 	try {
         const conn = await connect();
@@ -113,4 +128,4 @@ const deleteItem = async(id:number=0) =>{
     return true;
 }
 
-export default {getItem, listItems, createItem, updateItem, deleteItem, getUserLogin, setValidateWait1, setValidateWait2};
+export default {getItem, listItems, createItem, updateItem, deleteItem, getUserLogin, setValidateWait1, setValidateWait2, createUserLogin};

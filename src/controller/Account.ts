@@ -75,6 +75,16 @@ router.get("/register",async (req: Request, res: Response, next: NextFunction) =
 	
 	res.render("account/register",{page : page});
 });
+router.post("/register",async (req: Request, res: Response, next: NextFunction) => {
+	var username = req.body.username;
+	var password = req.body.password;
+	var email = req.body.email;
+	var repassword = req.body.repassword;
+	await modules.createUserLogin(username, email, password);
+	res.redirect('/account/login');
+});
+
+
 
 router.get("/validate",checkLogin, async (req: Request, res: Response, next: NextFunction) => {
 	
