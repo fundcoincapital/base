@@ -114,6 +114,15 @@ router.post("/validate/step-2",checkLogin, async (req: Request, res: Response, n
 	res.render("account/validate",{page : page});
 });
 
+router.post("/changepass",checkLogin, async (req: Request, res: Response, next: NextFunction) => {
+	var password = req.body.password;
+	if(password != ""){
+		await modules.changePassword(req.session.user.id, password);
+	}
+	
+	res.redirect('/account');
+});
+
 
 router.get("/bank",checkLogin, async (req: Request, res: Response, next: NextFunction) => {
 	

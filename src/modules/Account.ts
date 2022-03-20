@@ -115,6 +115,19 @@ const updateItem = async(id:number=0, obj="") =>{
     return true;
 }
 
+const changePassword = async(id:number=0, password:string="") => {
+    try {
+        const conn = await connect();
+        var sql = `UPDATE ${dbName} SET password='${password}' WHERE ${prikeyField}=${id}`;
+        await conn.query(sql);
+        return true;
+    }
+    catch (e) {
+        return false;
+    }
+    return true;
+};
+
 const deleteItem = async(id:number=0) =>{
 	try {
     const conn = await connect();
@@ -128,4 +141,4 @@ const deleteItem = async(id:number=0) =>{
     return true;
 }
 
-export default {getItem, listItems, createItem, updateItem, deleteItem, getUserLogin, setValidateWait1, setValidateWait2, createUserLogin};
+export default {getItem, listItems, createItem, updateItem, deleteItem, getUserLogin, setValidateWait1, setValidateWait2, createUserLogin, changePassword};
